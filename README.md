@@ -1,5 +1,5 @@
-# Auto update system for Flux node operators
-Auto restart the node when homepage is down
+# Auto restart on local website failure
+Auto restart the node when local homepage is down
 
 # How it works:
 Get upnp port from hostname (ex : cumulus**2** = port 161**2**6), adapt it for your usage
