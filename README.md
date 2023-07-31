@@ -27,3 +27,6 @@ chmod +x test_flux.sh && mkdir crontab_logs && touch crontab_logs/test_flux.log 
 the Crontab is set to execute script every 15 minutes
 
 Logs directory `/home/$USER/crontab_logs/test_flux.log`
+
+
+Buy me a coffee (Flux) : t1X4BcB1zopHePw4Cp8yammCmWXWjSFZ8Kg
