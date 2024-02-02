@@ -21,13 +21,16 @@ download the script
 ```
 wget -N https://github.com/VinxItak/fluxnode/releases/download/v2.0.0/test_flux.sh
 wget -N https://github.com/VinxItak/fluxnode/releases/download/v2.0.0/puppeteer_upnp.js
+
 ```
 copy and paste command below to set the exec permission to the script, create log file and setup crontab ; and install prerequises for node.js
 
 ```
 npm install puppeteer
 sudo apt-get install -y nodejs libatk1.0-0 libatk-bridge2.0-0 libxdamage1 libgbm1 libxkbcommon0
+
 chmod +x test_flux.sh && mkdir crontab_logs ; touch crontab_logs/test_flux.log && crontab -l | sed "\$a*/15 * * * * /home/$USER/test_flux.sh >> /home/$USER/crontab_logs/test_flux.log 2>&1" | crontab -
+
 ```
 the Crontab is set to execute script every 15 minutes
 
