@@ -36,5 +36,6 @@ the Crontab is set to execute script every 15 minutes
 
 Logs directory `/home/$USER/crontab_logs/test_flux.log`
 
+# Want to thanks me ?
 
 Buy me a coffee (Flux address) : t1X4BcB1zopHePw4Cp8yammCmWXWjSFZ8Kg
