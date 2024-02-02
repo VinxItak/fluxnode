@@ -1,7 +1,5 @@
 PORT=$(hostname | awk '{print substr($0,length($0))}')
 WEBPAGE="http://127.0.0.1:161${PORT}6"
-STDOUTFILE="test_flux.log"
-
 
 func_timestamp () {
     date +"%Y-%m-%d %T"
@@ -18,10 +16,10 @@ if [ $HTTPCODE -eq 200 ]; then
     echo "$(func_timestamp) #1 HTTP STATUS -> OK"
     func_upnpstatus
     if [ "$UPNPSTATUS" -eq 0 ]; then
-        echo "$(func_timestamp) #1 HTTP STATUS $HTTPCODE -> OK AND UPNP STATUS -> OK" >> "$STDOUTFILE"
+        echo "$(func_timestamp) #1 HTTP STATUS $HTTPCODE -> OK AND UPNP STATUS -> OK"
         exit 0
     else
-        echo "$(func_timestamp) #1 HTTP STATUS $HTTPCODE -> OK AND UPNP STATUS -> KO ; restarting" >> "$STDOUTFILE"
+        echo "$(func_timestamp) #1 HTTP STATUS $HTTPCODE -> OK AND UPNP STATUS -> KO ; restarting"
         sudo reboot now
         exit 0
     fi
@@ -30,10 +28,10 @@ else
     sleep 10m
     func_httpcode
     if [ $HTTPCODE -eq 200 ]; then
-        echo "$(func_timestamp) #2 HTTP STATUS $HTTPCODE -> OK" >> "$STDOUTFILE"
+        echo "$(func_timestamp) #2 HTTP STATUS $HTTPCODE -> OK"
         exit 0
     else
-        echo "$(func_timestamp) #2 HTTP STATUS $HTTPCODE -> KO ; restarting" >> "$STDOUTFILE"
+        echo "$(func_timestamp) #2 HTTP STATUS $HTTPCODE -> KO ; restarting"
         sudo reboot now
         exit 0
     fi
