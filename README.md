@@ -5,12 +5,14 @@ Auto restart the node when local homepage is down
 Get upnp port from hostname (ex : cumulus**2** = port 161**2**6), adapt it for your usage
 
 1. Test the homepage
+
   a. Test if page is up but UPNP failure is present
+  
   b. restart the node if UPNP failure is present
 
-3. Wait 10m if down and test again
+2. Wait 10m if down and test again
 
-4. Restart if still down
+3. Restart if still down
 
 
 # How to use:
