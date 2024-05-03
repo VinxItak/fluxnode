@@ -1,4 +1,4 @@
-PORT=$(hostname | awk '{print substr($0,length($0))}')
+PORT=$(hostname | awk '{print substr($0,length($0))}') #you can specify the port used, from 2 to 9, ie: PORT=5, meaning 16156 port
 WEBPAGE="http://127.0.0.1:161${PORT}6"
 
 func_timestamp () {
