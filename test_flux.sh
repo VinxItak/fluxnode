@@ -13,7 +13,7 @@ func_upnpstatus () {
 
 func_httpcode
 if [ $HTTPCODE -eq 200 ]; then
-    echo "$(func_timestamp) #1 HTTP STATUS -> OK"
+    #echo "$(func_timestamp) #1 HTTP STATUS -> OK"
     func_upnpstatus
     if [ "$UPNPSTATUS" -eq 0 ]; then
         echo "$(func_timestamp) #1 HTTP STATUS $HTTPCODE -> OK AND UPNP STATUS -> OK"
