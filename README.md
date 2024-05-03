@@ -21,8 +21,8 @@ Login to the server with the same user as the node (`home` directory where the f
 download the script
 
 ```
-wget -N https://github.com/VinxItak/fluxnode/releases/download/v2.0.0/test_flux.sh
-wget -N https://github.com/VinxItak/fluxnode/releases/download/v2.0.0/puppeteer_upnp.js
+wget -N https://github.com/VinxItak/fluxnode/releases/download/v2.0.1/test_flux.sh
+wget -N https://github.com/VinxItak/fluxnode/releases/download/v2.0.1/puppeteer_upnp.js
 
 ```
 copy and paste command below to set the exec permission to the script, create log file and setup crontab ; and install prerequises for node.js
