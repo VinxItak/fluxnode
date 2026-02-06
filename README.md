@@ -20,14 +20,14 @@ b. Restart the node if benchmark status is not CUMULUS, NIMBUS, or STRATUS
 
 Login to the server with the same user as the node (`home` directory where the flux node is installed) using `ssh`
 
-download the script
+Download the script
 
 ```
 wget -N https://github.com/VinxItak/fluxnode/releases/download/v3.0.0/test_flux.sh
 
 ```
 
-copy and paste command below to set the exec permission to the script, create log file and setup crontab ; and install prerequisites
+Copy and paste command below to set the exec permission to the script, create log file and setup crontab ; and install prerequisites
 
 ```
 # Prerequisites: `fluxbench-cli`, `jq`, and `curl` should be available on the server.
