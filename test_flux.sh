@@ -12,7 +12,7 @@ func_timestamp () {
     date +"%Y-%m-%d %T"
 }
 func_httpcode () {
-	HTTPCODE=$(curl --max-time 5 --silent --write-out %{response_code} --output "/dev/null" "$UIWEBPAGE")
+	HTTPCODE=$(curl --max-time 5 --silent --write-out "%{response_code}" --output "/dev/null" "$UIWEBPAGE")
     }
 func_benchmarkstatus () {
     BENCHMARKSTATUS=$(curl --max-time 5 --silent "$APIWEBPAGE/daemon/getbenchmarks" | jq -r '.data | fromjson | .status // empty')
@@ -22,7 +22,7 @@ func_benchmarkstatus () {
 }
 
 func_httpcode
-if [ $HTTPCODE -eq 200 ]; then
+if [ "$HTTPCODE" -eq 200 ]; then
     #echo "$(func_timestamp) #1 HTTP STATUS -> OK"
     func_benchmarkstatus
     if [ "$BENCHMARKSTATUS" = "CUMULUS" ] || [ "$BENCHMARKSTATUS" = "NIMBUS" ] || [ "$BENCHMARKSTATUS" = "STRATUS" ]; then
@@ -37,7 +37,7 @@ else
     echo "#1 HTTP STATUS $HTTPCODE -> KO : pause for 10 minutes"
     sleep 10m
     func_httpcode
-    if [ $HTTPCODE -eq 200 ]; then
+    if [ "$HTTPCODE" -eq 200 ]; then
         echo "$(func_timestamp) #2 HTTP STATUS $HTTPCODE -> OK"
         exit 0
     else

@@ -4,13 +4,13 @@ Auto restart the node when local homepage is down
 
 # How it works:
 
-1. Get upnp port from config file
+1. Get API port from fluxbench-cli and calculate UI port
 
 2. Test the homepage
 
 a. Test if page is up but benchmark failure is present
 
-b. restart the node if benchmark failure is present
+b. Restart the node if benchmark status is not CUMULUS, NIMBUS, or STRATUS
 
 3. Wait 10m if down and test again
 
@@ -27,7 +27,7 @@ wget -N https://github.com/VinxItak/fluxnode/releases/download/v3.0.0/test_flux.
 
 ```
 
-copy and paste command below to set the exec permission to the script, create log file and setup crontab ; and install prerequises for node.js
+copy and paste command below to set the exec permission to the script, create log file and setup crontab ; and install prerequisites
 
 ```
 # Prerequisites: `fluxbench-cli`, `jq`, and `curl` should be available on the server.
