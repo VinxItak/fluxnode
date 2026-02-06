@@ -23,7 +23,7 @@ Login to the server with the same user as the node (`home` directory where the f
 Download the script
 
 ```
-wget -N https://github.com/VinxItak/fluxnode/releases/download/v3.0.0/test_flux.sh
+wget -N https://github.com/VinxItak/fluxnode/releases/download/v3.0.1/test_flux.sh
 
 ```
 
