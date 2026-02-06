@@ -4,7 +4,7 @@ Auto restart the node when local homepage is down
 
 # How it works:
 
-1. Get API port from `fluxbench-cli` and calculate UI port. If `fluxbench-cli` returns an IP address without an explicit port (for example `86.66.168.9`), the script assumes the implicit API port `16127` (so the UI port will be `16126`).
+1. Get API port from `fluxbench-cli` and calculate UI port. If `fluxbench-cli` returns an IP address without an explicit port (for example `90.55.172.11`), the script assumes the implicit API port `16127` (so the UI port will be `16126`).
 
 2. Test the homepage
 
