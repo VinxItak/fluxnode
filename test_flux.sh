@@ -1,5 +1,18 @@
 #!/bin/bash
-APIPORT=$(fluxbench-cli getbenchmarks | jq -r '.ipaddress | split(":") | .[1]')
+IPADDR=$(fluxbench-cli getbenchmarks | jq -r '.ipaddress // empty')
+if [ -z "$IPADDR" ]; then
+    echo "$(date +"%Y-%m-%d %T") ERROR: Failed to retrieve ipaddress from fluxbench-cli"
+    exit 1
+fi
+
+# If the returned ipaddress contains a port like 1.2.3.4:16127, extract it.
+# Otherwise assume implicit API port 16127 (UI port will be 16126).
+if [[ "$IPADDR" == *":"* ]]; then
+    APIPORT="${IPADDR##*:}"
+else
+    APIPORT=16127
+fi
+
 if [ -z "$APIPORT" ] || ! [[ "$APIPORT" =~ ^[0-9]+$ ]]; then
     echo "$(date +"%Y-%m-%d %T") ERROR: Failed to retrieve valid APIPORT"
     exit 1
