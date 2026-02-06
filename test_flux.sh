@@ -1,5 +1,9 @@
 #!/bin/bash
 APIPORT=$(fluxbench-cli getbenchmarks | jq -r '.ipaddress | split(":") | .[1]')
+if [ -z "$APIPORT" ] || ! [[ "$APIPORT" =~ ^[0-9]+$ ]]; then
+    echo "$(date +"%Y-%m-%d %T") ERROR: Failed to retrieve valid APIPORT"
+    exit 1
+fi
 UIPORT=$((APIPORT - 1))
 UIWEBPAGE="http://127.0.0.1:${UIPORT}"
 APIWEBPAGE="http://127.0.0.1:${APIPORT}"
@@ -11,7 +15,10 @@ func_httpcode () {
 	HTTPCODE=$(curl --max-time 5 --silent --write-out %{response_code} --output "/dev/null" "$UIWEBPAGE")
     }
 func_benchmarkstatus () {
-    BENCHMARKSTATUS=$(curl --max-time 5 --silent "$APIWEBPAGE/daemon/getbenchmarks" | jq -r '.data | fromjson | .status')
+    BENCHMARKSTATUS=$(curl --max-time 5 --silent "$APIWEBPAGE/daemon/getbenchmarks" | jq -r '.data | fromjson | .status // empty')
+    if [ -z "$BENCHMARKSTATUS" ]; then
+        BENCHMARKSTATUS="UNAVAILABLE"
+    fi
 }
 
 func_httpcode
