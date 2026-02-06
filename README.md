@@ -34,7 +34,7 @@ Copy and paste command below to set the exec permission to the script, create lo
 # Install common tools on Debian/Ubuntu if missing:
 sudo apt-get update && sudo apt-get install -y jq curl
 
-chmod +x test_flux.sh && mkdir -p crontab_logs && touch crontab_logs/test_flux.log && crontab -l | sed "\$a*/15 * * * * /home/$USER/test_flux.sh >> /home/$USER/crontab_logs/test_flux.log 2>&1" | crontab -
+chmod +x test_flux.sh && mkdir -p crontab_logs && crontab -l | grep -q "test_flux.sh" || (crontab -l 2>/dev/null; echo "*/15 * * * * /home/$USER/test_flux.sh >> /home/$USER/crontab_logs/test_flux.log 2>&1") | crontab -
 
 ```
 
