@@ -44,4 +44,4 @@ Logs directory `/home/$USER/crontab_logs/test_flux.log`
 
 # Want to thanks me ?
 
-Buy me a coffee (Flux address) : t1X4BcB1zopHePw4Cp8yammCmWXWjSFZ8Kg
+Buy me a coffee (Flux address) : t1aHXdAUiHoSAoaKhiSvZhYyLLm8WERJPsG
